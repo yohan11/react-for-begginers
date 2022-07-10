@@ -11,7 +11,7 @@
 		function App() {
 			const [counter, setCounter] = React.useState(0); //0을 초기값으로 둔다, 두번째 요소는 그 값을 바꾸는 함수
 			const onClick = () => {
-				setCounter(counter + 1); //counter의 값을 바꿔주고,리렌더링 까지 해준다.
+				setCounter((current) => current + 1);
 			};
 			return (
 				<div>

@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-   <script type="text/babel">
-    const root=document.getElementById('root');
-    const Title = () => (
-        <h3 
-            id='title' 
-            onMouseEnter={()=>console.log("mouse entered")}
-        >
-        Hello, I am a title
-        </h3> 
-    );
-    const Button = () => (
-        <button 
-            style={{
-                backgroundColor: 'tomato'
-            }} 
-            onClick={()=>console.log('i am clicked')}
-            >
-        Click Me
-        </button>
-    );
-    const Container = () => (
-        <div>
-            <Title />
-            <Button />
-        </div>
-        );
-    ReactDOM.render(<Container />,root);
-   </script>
+	<body>
+		<div id="root"></div>
+	</body>
+	<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script type="text/babel">
+		const root = document.getElementById("root");
+		let counter = 0;
+		function countUp() {
+			counter += 1;
+			render();
+		}
+		function render() {
+			ReactDOM.render(<Container />, root); //UI 업데이트를 위해서는 계속 rerender 해줘야한다.
+		}
+		const Container = () => (
+			<div>
+				<h3>Total Clicks: {counter}</h3>
+				<button onClick={countUp}>Click Me</button>
+			</div>
+		);
+		ReactDOM.render(<Container />, root); //root에 container를 렌더링(띄워줌)
+	</script>
 </html>

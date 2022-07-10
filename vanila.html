@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <span id="view">Total Clicks: </span>
-        <button id="btn">Click me</button>
-    </body>
-    <script>
-        const button=document.getElementById("btn");
-        let counter=0;
-        const view=document.getElementById("view");
-        function handleClick(){
-            console.log('i have been cicked');
-            counter+=1;
-            view.innerText=`total clicks:${counter}`;
-        }
-        button.addEventListener("click",handleClick)
-    </script>
+	<body>
+		<span id="view">Total Clicks: </span>
+		<button id="btn">Click me</button>
+	</body>
+	<script>
+		const button = document.getElementById("btn");
+		let counter = 0;
+		const view = document.getElementById("view");
+		function handleClick() {
+			console.log("i have been cicked");
+			counter += 1;
+			view.innerText = `total clicks:${counter}`;
+		}
+		button.addEventListener("click", handleClick);
+	</script>
 </html>

@@ -6,10 +6,11 @@
 	<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
 	<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 	<script type="text/babel">
 		const root = document.getElementById("root");
 
-		function Btn({ text, onClick }) {
+		function Btn({ text = "Hi", onClick }) {
 			console.log(text, "was rendered");
 			return (
 				<button
@@ -27,7 +28,10 @@
 			);
 		}
 
-		const MemorizedBtn = React.memo(Btn);
+		Btn.propTypes = {
+			text: PropTypes.string.isRequired,
+			fontSize: PropTypes.number,
+		};
 
 		function App() {
 			const [value, setValue] = React.useState("Save Change");
@@ -35,8 +39,8 @@
 
 			return (
 				<div>
-					<MemorizedBtn text={value} onClick={changeValue} />
-					<MemorizedBtn text="Confirm" />
+					<Btn text={value} onClick={changeValue} />
+					<Btn />
 				</div>
 			);
 		}
